@@ -38,6 +38,7 @@ dependencies:
   panorama: ^0.4.1
   stacked: ^2.2.7+1
   google_place: ^0.4.7
+  google_maps_flutter: ^2.1.10
 dev_dependencies:
   flutter_test:
     sdk: flutter

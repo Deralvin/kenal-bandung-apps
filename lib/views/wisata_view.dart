@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kenalbandung/const/constants.dart';
 import 'package:kenalbandung/const/theme.dart';
 import 'package:kenalbandung/viewmodels/wisata_belanja_view_model.dart';
+import 'package:kenalbandung/views/detail_view_wisata_belanja.dart';
 import 'package:stacked/stacked.dart';
 
 class WisataView extends StatefulWidget {
@@ -37,7 +38,21 @@ class _WisataViewState extends State<WisataView> {
                     margin:
                         EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 4),
                     child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        final data = model.data_wisata[idx]['koordinat'];
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => DetailViewWisataBelanja(
+                              latitude:
+                                  double.parse(data.toString().split(",")[0]),
+                              longitude:
+                                  double.parse(data.toString().split(",")[1]),
+                            ),
+                          ),
+                        );
+                      },
                       radius: 8,
                       borderRadius: BorderRadius.circular(8),
                       child: Container(
