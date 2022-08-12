@@ -30,6 +30,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -40,18 +41,34 @@ class _HomeViewState extends State<HomeView> {
                     child: Container(
                       margin: EdgeInsets.only(top: 16, left: 16, right: 4),
                       height: 150,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 10, left: 16, right: 4),
+                        child: Text("Cafe & Resto"),
+                      ),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          color: Colors.red),
+                        image: DecorationImage(
+                            image: AssetImage("assets/cafe_banner.png"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(23),
+                        color: Color(0xffDEAA87),
+                      ),
                     ),
                   ),
                   Expanded(
                     child: Container(
                       margin: EdgeInsets.only(top: 16, left: 4, right: 16),
                       height: 150,
+                      child: Container(
+                        margin: EdgeInsets.only(top: 10, left: 16, right: 4),
+                        child: Text("Mall & Disttro"),
+                      ),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(23),
-                          color: Colors.red),
+                        image: DecorationImage(
+                            image: AssetImage("assets/mall_banner.png"),
+                            fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(23),
+                        color: Color(0xff71B5B5),
+                      ),
                     ),
                   ),
                 ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kenalbandung/home_view.dart';
+import 'package:kenalbandung/views/home_view.dart';
 import 'package:kenalbandung/views/wisata_view.dart';
 
 void main() {
@@ -13,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Kenal Bandung',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //

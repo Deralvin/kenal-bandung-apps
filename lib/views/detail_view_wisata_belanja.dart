@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:async';
 
@@ -15,6 +16,7 @@ class DetailViewWisataBelanja extends StatefulWidget {
 
 class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
   Completer<GoogleMapController> _controller = Completer();
+  Position? myCurrentLocation;
   CameraPosition? _kGooglePlex;
   List<Marker> _markers = [];
   static final CameraPosition _kLake = CameraPosition(
@@ -24,7 +26,16 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
       zoom: 19.151926040649414);
   Future<void> _goToTheLake() async {
     final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(_kLake));
+
+    myCurrentLocation = await Geolocator.getCurrentPosition();
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+            target: LatLng(
+                myCurrentLocation!.latitude, myCurrentLocation!.longitude),
+            zoom: 18),
+      ),
+    );
   }
 
   @override
@@ -32,8 +43,29 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
     // TODO: implement initState
     super.initState();
     print(widget.latitude);
+    requestLoc();
     camera_place();
     addMarkerPlace();
+    addCurrentLocation();
+  }
+
+  void requestLoc() async {
+    LocationPermission permission = await Geolocator.requestPermission();
+  }
+
+  void addCurrentLocation() async {
+    myCurrentLocation = await Geolocator.getCurrentPosition();
+    print("this is my addcurrent ${myCurrentLocation!.latitude}");
+    setState(() {
+      _markers.add(
+        Marker(
+          markerId: MarkerId('my_loc'),
+          position:
+              LatLng(myCurrentLocation!.latitude, myCurrentLocation!.longitude),
+          infoWindow: InfoWindow(title: 'The title of the marker'),
+        ),
+      );
+    });
   }
 
   void addMarkerPlace() async {
@@ -67,10 +99,9 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: _goToTheLake,
-        label: Text('To the lake!'),
-        icon: Icon(Icons.directions_boat),
-      ),
+          onPressed: _goToTheLake,
+          label: Text('My Loc'),
+          icon: Icon(Icons.person_pin_circle_rounded)),
     );
   }
 }

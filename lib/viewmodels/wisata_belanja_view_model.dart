@@ -1,3 +1,4 @@
+import 'package:google_place/google_place.dart';
 import 'package:kenalbandung/const/constants.dart';
 import 'package:kenalbandung/services/api_service.dart';
 import 'package:kenalbandung/viewmodels/base_model.dart';
@@ -9,6 +10,7 @@ class WisataBelanjaViewModel extends BaseModel {
     setBusy(true);
     apiService = new ApiService(baseurl: baseurl);
     getDataWisata();
+    sampleget();
     setBusy(false);
   }
 
@@ -20,5 +22,11 @@ class WisataBelanjaViewModel extends BaseModel {
       data_wisata = data['data'];
     }
     setBusy(false);
+  }
+
+  void sampleget() async {
+    var googlePlace = GooglePlace("AIzaSyDiuACHZjw1U6HEj-w6CpuC5SKH5dHD3i8");
+    var result = await googlePlace.autocomplete.get("1600 Amphitheatre");
+    print("status ${result!.status}");
   }
 }
