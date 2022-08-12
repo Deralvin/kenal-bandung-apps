@@ -25,7 +25,7 @@ class WisataBelanjaViewModel extends BaseModel {
   }
 
   void sampleget() async {
-    var googlePlace = GooglePlace("AIzaSyDiuACHZjw1U6HEj-w6CpuC5SKH5dHD3i8");
+    var googlePlace = GooglePlace(" §");
     var result = await googlePlace.autocomplete.get("1600 Amphitheatre");
     print("status ${result!.status}");
   }

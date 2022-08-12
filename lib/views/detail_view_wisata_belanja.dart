@@ -62,7 +62,7 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
           markerId: MarkerId('my_loc'),
           position:
               LatLng(myCurrentLocation!.latitude, myCurrentLocation!.longitude),
-          infoWindow: InfoWindow(title: 'The title of the marker'),
+          infoWindow: InfoWindow(title: 'my location'),
         ),
       );
     });
@@ -72,7 +72,7 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
     _markers.add(Marker(
         markerId: MarkerId('SomeId'),
         position: LatLng(widget.latitude, widget.longitude),
-        infoWindow: InfoWindow(title: 'The title of the marker')));
+        infoWindow: InfoWindow(title: 'Mall')));
   }
 
   void camera_place() async {
@@ -87,6 +87,9 @@ class _DetailViewWisataBelanjaState extends State<DetailViewWisataBelanja> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Detail Wisata"),
+      ),
       body: GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition: CameraPosition(

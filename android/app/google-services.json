@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "942689098257",
+    "project_id": "kenal-bandung",
+    "storage_bucket": "kenal-bandung.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942689098257:android:8310218bcb11572bc52fb0",
+        "android_client_info": {
+          "package_name": "com.deral.kenalbandung"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942689098257-mqf8dhufnhfcdrghn9se2titgtvg8i5k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ3n3ufCUgo1_ThGGvjVMisKu579mRJmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942689098257-mqf8dhufnhfcdrghn9se2titgtvg8i5k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "942689098257-h2jf7m7ca1hrc8ppjl4v5f413o6p9dmt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.deral.kenalbandung"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
